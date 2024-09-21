@@ -217,7 +217,7 @@ def main():
         azure_openai_client = AzureOpenAI(
             api_key=azure_openai_api_key,
             azure_endpoint=azure_open_ai_endpoint,
-            version=azure_open_ai_version
+            api_version=azure_open_ai_version
         )
         azure_openai_response = azure_openai_client.chat.completions.create(
             model=open_ai_model,
