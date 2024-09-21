@@ -11,7 +11,7 @@ jobs:
       - name: Autofill PR description if empty using OpenAI
         uses: ./
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
           azure_openai_api_key: ${{ secrets.AZURE_OPENAI_API_KEY }}
           azure_openai_endpoint: ${{ secrets.AZURE_OPENAI_ENDPOINT }}

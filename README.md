@@ -39,7 +39,7 @@ jobs:
     steps:
       - uses: cedricve/azureopenai-pr-description@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
 ```
 
