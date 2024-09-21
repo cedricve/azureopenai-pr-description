@@ -60,25 +60,6 @@ jobs:
 [OpenAI model]: https://platform.openai.com/docs/models
 [secret]: https://docs.github.com/en/actions/security-guides/encrypted-secrets
 
-## Demo
-
-- [platisd/smartcar_shield/pull/70](https://github.com/platisd/smartcar_shield/pull/70)
-  - The GitHub Action explained why it is useful to add itself to a repository. 🤯
-
-![openai-pr-description-screenshot](media/openai-pr-description-screenshot.png)
-
-- [platisd/cpp-command-parser/pull/16](https://github.com/platisd/cpp-command-parser/pull/16)
-  - A decent explanation on why fetching `GoogleTest` during the `cmake` build instead of
-    version controlling it, is a good idea. 🎯
-
-![cpp-command-parser-screenshot](media/cpp-command-parser-screenshot.png)
-
-- [platisd/clang-tidy-pr-comments/pull/43](https://github.com/platisd/clang-tidy-pr-comments/pull/43)
-  - I would improve it a bit, some parts are a bit off, but with small modifications it'd better
-    than the PR description I originally had. 😅
-
-![clang-tidy-pr-comments-screenshot](media/clang-tidy-pr-comments-screenshot.png)
-
 ### `403` error when updating the PR description
 
 If you get a `403` error when trying to update the PR description, it's most likely because
