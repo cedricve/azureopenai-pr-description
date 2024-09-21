@@ -17,3 +17,4 @@ jobs:
           azure_openai_endpoint: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
           azure_openai_version: ${{ secrets.AZURE_OPENAI_VERSION }}
           allowed_users: cedricve
+          overwrite_description: true
