@@ -251,6 +251,7 @@ def main():
         )
         generated_pr_description = azure_openai_response.choices[0].message.content
 
+    redundant_prefix = "This pull request "
     if generated_pr_description.startswith(redundant_prefix):
         generated_pr_description = generated_pr_description[len(
             redundant_prefix):]
