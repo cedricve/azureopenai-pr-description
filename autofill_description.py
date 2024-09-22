@@ -115,6 +115,17 @@ def main():
     azure_openai_api_key = args.azure_openai_api_key
     azure_openai_endpoint = args.azure_openai_endpoint
     azure_openai_version = args.azure_openai_version
+
+    # Debug with test values
+    print(f"GitHub API URL: {github_api_url}")
+    print(f"GitHub Repository: {repo}")
+    print(f"Pull Request ID: {pull_request_id}")
+    print(f"GitHub Token: {github_token}")
+    print(f"OpenAI API Key: {openai_api_key}")
+    print(f"Azure OpenAI API Key: {azure_openai_api_key}")
+    print(f"Azure OpenAI Endpoint: {azure_openai_endpoint}")
+    print(f"Azure OpenAI Version: {azure_openai_version}")
+
     allowed_users = os.environ.get("INPUT_ALLOWED_USERS", "")
     if allowed_users:
         allowed_users = allowed_users.split(",")
