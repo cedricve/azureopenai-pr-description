@@ -20,4 +20,6 @@ fi
   --github-token "$INPUT_GITHUB_TOKEN" \
   --openai-api-key "$INPUT_OPENAI_API_KEY" \
   --azure-openai-api-key "$INPUT_AZURE_OPENAI_API_KEY" \
+  --azure-openai-endpoint "$INPUT_AZURE_OPENAI_ENDPOINT" \
+  --azure-openai-version "$INPUT_AZURE_OPENAI_VERSION" \
 

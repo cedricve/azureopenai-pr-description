@@ -6,7 +6,7 @@ Autofill the description of your pull requests with the power of OpenAI!
 
 ## What does it do?
 
-`platisd/openai-pr-description` is a GitHub Action that looks at the title as well as the contents
+`cedricve/azureopenai-pr-description` is a GitHub Action that looks at the title as well as the contents
 of your pull request and uses the [OpenAI API](https://openai.com/blog/openai-api) to automatically
 fill up the description of your pull request. Just like ChatGPT would! 🎉<br>
 The Action tries to focus on **why** the changes are needed rather on **what** they are,
@@ -33,13 +33,13 @@ name: Autofill PR description
 on: pull_request
 
 jobs:
-  openai-pr-description:
+  azureopenai-pr-description:
     runs-on: ubuntu-22.04
 
     steps:
-      - uses: platisd/openai-pr-description@master
+      - uses: cedricve/azureopenai-pr-description@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.TOKEN }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
 ```
 
@@ -59,25 +59,6 @@ jobs:
 [OpenAI API key]: https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key
 [OpenAI model]: https://platform.openai.com/docs/models
 [secret]: https://docs.github.com/en/actions/security-guides/encrypted-secrets
-
-## Demo
-
-- [platisd/smartcar_shield/pull/70](https://github.com/platisd/smartcar_shield/pull/70)
-  - The GitHub Action explained why it is useful to add itself to a repository. 🤯
-
-![openai-pr-description-screenshot](media/openai-pr-description-screenshot.png)
-
-- [platisd/cpp-command-parser/pull/16](https://github.com/platisd/cpp-command-parser/pull/16)
-  - A decent explanation on why fetching `GoogleTest` during the `cmake` build instead of
-    version controlling it, is a good idea. 🎯
-
-![cpp-command-parser-screenshot](media/cpp-command-parser-screenshot.png)
-
-- [platisd/clang-tidy-pr-comments/pull/43](https://github.com/platisd/clang-tidy-pr-comments/pull/43)
-  - I would improve it a bit, some parts are a bit off, but with small modifications it'd better
-    than the PR description I originally had. 😅
-
-![clang-tidy-pr-comments-screenshot](media/clang-tidy-pr-comments-screenshot.png)
 
 ### `403` error when updating the PR description
 
