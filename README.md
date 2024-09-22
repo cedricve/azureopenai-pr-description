@@ -41,6 +41,9 @@ jobs:
         with:
           github_token: ${{ secrets.TOKEN }}
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          azure_openai_api_key: ${{ secrets.AZURE_OPENAI_API_KEY }}
+          azure_openai_endpoint: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
+          azure_openai_version: ${{ secrets.AZURE_OPENAI_VERSION }}
 ```
 
 | Input                   | Description                                                    | Required | Default                    |
