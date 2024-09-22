@@ -88,6 +88,18 @@ def main():
         help="The Azure OpenAI API key",
     )
     parser.add_argument(
+        "--azure-openai-endpoint",
+        type=str,
+        required=True,
+        help="The Azure OpenAI endpoint",
+    )
+    parser.add_argument(
+        "--azure-openai-version",
+        type=str,
+        required=True,
+        help="The Azure OpenAI API version",
+    )
+    parser.add_argument(
         "--allowed-users",
         type=str,
         required=False,
@@ -101,15 +113,14 @@ def main():
     pull_request_id = args.pull_request_id
     openai_api_key = args.openai_api_key
     azure_openai_api_key = args.azure_openai_api_key
+    azure_openai_endpoint = args.azure_openai_endpoint
+    azure_openai_version = args.azure_openai_version
     allowed_users = os.environ.get("INPUT_ALLOWED_USERS", "")
     if allowed_users:
         allowed_users = allowed_users.split(",")
     open_ai_model = os.environ.get("INPUT_OPENAI_MODEL", "gpt-4o-mini")
     max_prompt_tokens = int(os.environ.get("INPUT_MAX_TOKENS", "1000"))
     model_temperature = float(os.environ.get("INPUT_TEMPERATURE", "0.6"))
-    azure_open_ai_endpoint = os.environ.get(
-        "INPUT_AZURE_OPENAI_ENDPOINT", "")
-    azure_open_ai_version = os.environ.get("INPUT_AZURE_OPENAI_VERSION", "")
     model_sample_prompt = os.environ.get(
         "INPUT_MODEL_SAMPLE_PROMPT", SAMPLE_PROMPT)
     model_sample_response = os.environ.get(
@@ -216,8 +227,8 @@ def main():
     elif azure_openai_api_key != "":
         azure_openai_client = AzureOpenAI(
             api_key=azure_openai_api_key,
-            azure_endpoint=azure_open_ai_endpoint,
-            api_version=azure_open_ai_version
+            azure_endpoint=azure_openai_endpoint,
+            api_version=azure_openai_version
         )
         azure_openai_response = azure_openai_client.chat.completions.create(
             model=open_ai_model,
