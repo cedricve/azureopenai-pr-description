@@ -6,7 +6,7 @@ Autofill the description of your pull requests with the power of OpenAI!
 
 ## What does it do?
 
-`platisd/openai-pr-description` is a GitHub Action that looks at the title as well as the contents
+`cedricve/azureopenai-pr-description` is a GitHub Action that looks at the title as well as the contents
 of your pull request and uses the [OpenAI API](https://openai.com/blog/openai-api) to automatically
 fill up the description of your pull request. Just like ChatGPT would! 🎉<br>
 The Action tries to focus on **why** the changes are needed rather on **what** they are,
