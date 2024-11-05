@@ -13,6 +13,8 @@ Go straight to the point.
 
 The title of the pull request is "Enable valgrind on CI" and the following changes took place:
 
+Provide the url to the pull request environment (if available): https://asampleurl.com
+
 Changes in file .github/workflows/build-ut-coverage.yml: @@ -24,6 +24,7 @@ jobs:
          run: |
            sudo apt-get update
@@ -70,6 +72,12 @@ def main():
         help="The pull request ID",
     )
     parser.add_argument(
+        "--pull-request-url",
+        type=str,
+        required=True,
+        help="The pull request URL",
+    )
+    parser.add_argument(
         "--github-token",
         type=str,
         required=True,
@@ -111,6 +119,7 @@ def main():
     repo = args.github_repository
     github_token = args.github_token
     pull_request_id = args.pull_request_id
+    pull_request_url = args.pull_request_url
     openai_api_key = args.openai_api_key
     azure_openai_api_key = args.azure_openai_api_key
     azure_openai_endpoint = args.azure_openai_endpoint
@@ -218,6 +227,10 @@ def main():
                     "role": "user",
                     "content": "Title of the pull request: " + pull_request_title,
                 },
+                {
+                    "role": "user",
+                    "content": "Url to of the pull request: " + pull_request_url,
+                },
                 {"role": "user", "content": completion_prompt},
             ],
             temperature=model_temperature,
@@ -243,6 +256,10 @@ def main():
                 {
                     "role": "user",
                     "content": "Title of the pull request: " + pull_request_title,
+                },
+                {
+                    "role": "user",
+                    "content": "Url to of the pull request: " + pull_request_url,
                 },
                 {"role": "user", "content": completion_prompt},
             ],

@@ -14,6 +14,10 @@ inputs:
     description: 'Pull request id (otherwise attempt to extract it from the GitHub metadata)'
     required: false
     default: ''
+  pull_request_url:
+    description: 'Pull request URL (otherwise attempt to extract it from the GitHub metadata)'
+    required: false
+    default: ''
   allowed_users:
     description: 'Comma-separated list of GitHub usernames this action will run for, if empty it will run for all users'
     required: false
