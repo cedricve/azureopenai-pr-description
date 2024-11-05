@@ -13,8 +13,6 @@ Go straight to the point.
 
 The title of the pull request is "Enable valgrind on CI" and the following changes took place:
 
-Provide the url to the pull request environment (if available): ${{ env.PULL_REQUEST_URL }}
-
 Changes in file .github/workflows/build-ut-coverage.yml: @@ -24,6 +24,7 @@ jobs:
          run: |
            sudo apt-get update
@@ -227,10 +225,6 @@ def main():
                     "role": "user",
                     "content": "Title of the pull request: " + pull_request_title,
                 },
-                {
-                    "role": "user",
-                    "content": "Url to of the pull request: " + pull_request_url,
-                },
                 {"role": "user", "content": completion_prompt},
             ],
             temperature=model_temperature,
@@ -257,10 +251,6 @@ def main():
                     "role": "user",
                     "content": "Title of the pull request: " + pull_request_title,
                 },
-                {
-                    "role": "user",
-                    "content": "Url to of the pull request: " + pull_request_url,
-                },
                 {"role": "user", "content": completion_prompt},
             ],
             temperature=model_temperature,
@@ -276,6 +266,12 @@ def main():
             generated_pr_description[0].upper() + generated_pr_description[1:]
         )
     print(f"Generated pull request description: '{generated_pr_description}'")
+
+    # We will prepend the pull_request_url.
+    if pull_request_url != "":
+        pull_request_url = f"[Pull Request]({pull_request_url})\n\n"
+        generated_pr_description = pull_request_url + generated_pr_description
+
     issues_url = "%s/repos/%s/issues/%s" % (
         github_api_url,
         repo,
