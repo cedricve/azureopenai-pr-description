@@ -271,7 +271,9 @@ def main():
     if pull_request_url != "":
         pull_request_url = f"Access the Pull Request environment [here]({pull_request_url})\n\n"
         generated_pr_description = pull_request_url + generated_pr_description
-        title = "## Pull Request live-environment\n\n"
+        title = "## Live Environment\n\n"
+        generated_pr_description = title + generated_pr_description
+        title = "## Description\n\n"
         generated_pr_description = title + generated_pr_description
 
     issues_url = "%s/repos/%s/issues/%s" % (
