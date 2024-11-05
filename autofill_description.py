@@ -13,7 +13,7 @@ Go straight to the point.
 
 The title of the pull request is "Enable valgrind on CI" and the following changes took place:
 
-Provide the url to the pull request environment (if available): https://asampleurl.com
+Provide the url to the pull request environment (if available): ${{ env.PULL_REQUEST_URL }}
 
 Changes in file .github/workflows/build-ut-coverage.yml: @@ -24,6 +24,7 @@ jobs:
          run: |
