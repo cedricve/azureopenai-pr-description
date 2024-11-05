@@ -141,9 +141,9 @@ def main():
         "Authorization": "token %s" % github_token,
     }
 
-    pull_request_url = f"{github_api_url}/repos/{repo}/pulls/{pull_request_id}"
+    pull_request_api_url = f"{github_api_url}/repos/{repo}/pulls/{pull_request_id}"
     pull_request_result = requests.get(
-        pull_request_url,
+        pull_request_api_url,
         headers=authorization_header,
     )
     if pull_request_result.status_code != requests.codes.ok:
@@ -173,9 +173,9 @@ def main():
     pull_request_files = []
     # Request a maximum of 10 pages (300 files)
     for page_num in range(1, 11):
-        pull_files_url = f"{pull_request_url}/files?page={page_num}&per_page=30"
+        pull_request_api_url = f"{pull_request_api_url}/files?page={page_num}&per_page=30"
         pull_files_result = requests.get(
-            pull_files_url,
+            pull_request_api_url,
             headers=authorization_header,
         )
 
@@ -269,8 +269,10 @@ def main():
 
     # We will prepend the pull_request_url.
     if pull_request_url != "":
-        pull_request_url = f"[Pull Request]({pull_request_url})\n\n"
+        pull_request_url = f"Access the Pull Request environment [here]({pull_request_url})\n\n"
         generated_pr_description = pull_request_url + generated_pr_description
+        title = "## Pull Request live-environment\n\n"
+        generated_pr_description = title + generated_pr_description
 
     issues_url = "%s/repos/%s/issues/%s" % (
         github_api_url,
