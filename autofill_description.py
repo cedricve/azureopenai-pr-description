@@ -235,7 +235,7 @@ def main():
                 {"role": "user", "content": completion_prompt},
             ],
             temperature=model_temperature,
-            max_tokens=max_prompt_tokens,
+            max_completion_tokens=max_prompt_tokens,
         )
         generated_pr_description = openai_response.choices[0].message.content
 
@@ -261,7 +261,7 @@ def main():
                 {"role": "user", "content": completion_prompt},
             ],
             temperature=model_temperature,
-            max_tokens=max_prompt_tokens,
+            max_completion_tokens=max_prompt_tokens,
         )
         generated_pr_description = azure_openai_response.choices[0].message.content
 
