@@ -25,7 +25,7 @@ inputs:
   openai_model:
     description: 'OpenAI model to use, needs to be compatible with the chat/completions endpoint'
     required: false
-    default: 'gpt-4o-mini'
+    default: 'gpt-4o'
   azure_openai_endpoint:
     description: 'Azure OpenAI endpoint to use.'
     required: false
