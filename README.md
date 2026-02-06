@@ -44,7 +44,7 @@ jobs:
           azure_openai_api_key: ${{ secrets.AZURE_OPENAI_API_KEY }}
           azure_openai_endpoint: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
           azure_openai_version: ${{ secrets.AZURE_OPENAI_VERSION }}
-          openai_model: gpt-4o # Optional, defaults to gpt-4o
+          openai_model: ${{ secrets.OPENAI_MODEL }} # Optional, defaults to gpt-4o
 ```
 
 | Input                   | Description                                                    | Required | Default                    |
